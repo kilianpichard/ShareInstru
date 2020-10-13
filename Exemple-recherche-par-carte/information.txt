@@ -1,0 +1,16 @@
+Utilisation du SASS (extention CSS) utilisé ici pour générer des nombres randoms 
+	-> permet ici un fond d'écran animé (pas forcement utile ni même beau mais c'était principalement pour découvrir des choses en CSS)
+ 
+Utilisation du CSSMAP utilisé ici pour afficher une carte du monde pour récupérer les continents (requiere utilisation du Jquery)
+	-> Possibilité via le récupération du continent dé générer une liste des Pays disponible (avec drapeau affiché dans la liste il existe des choses pour le faire facilement
+	-> Possibilité de personnalisation de la carte pour l'adapter a notre gout
+	
+Au final carte des continents, faire une carte de tout les pays dans le monde devient vite très compliqué.
+
+Mathias Romero
+
+Derniere modification : 13/10/2020
+
+
+
+ 
