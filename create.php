@@ -13,8 +13,20 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 		echo ("<hr/> Connexion impossible à la base de données <br/>");
 
 
-	$timezone = date_default_timezone_get();
-	echo "The current server timezone is: " . $timezone;
+	date_default_timezone_set('Europe/Paris');
+	$date = date("Y-m-d",strtotime(str_replace('/','-',$date)));
+	echo $date;
+
+
+	$pseudo = "";
+	$nom = "";
+	$prenom = "";
+	$naissance = "";
+	$email = "";
+	$password = "";
+	$portable = "";
+	$fixe = "";
+
 
 
 	if(!empty($_POST["pseudo"])){$pseudo = $_POST['pseudo'];}  
@@ -27,6 +39,10 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 	if(!empty($_POST["fixe"])){$fixe = $_POST['fixe'];}      
 
 
+	$req = "INSERT INTO utilisateur (util_pseudo, util_nom, util_prenom, util_date_naissance, util_date_inscription, util_email, util_mdp, util_portable, util_fixe) values ('$pseudo','$nom','$prenom','$naissance','$date','$email','$password','$portable','$fixe')";
 
+	$cur=preparerRequetePDO($conn,$req);
+	$res=majDonneesPrepareesPDO($cur);
+	echo "Succès, l'utilisateur a été bien ajouté à la base de données.";
 
 ?>
