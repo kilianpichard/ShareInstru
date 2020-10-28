@@ -14,7 +14,7 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 
 
 	date_default_timezone_set('Europe/Paris');
-	$date = date("Y-m-d",strtotime(str_replace('/','-',$date)));
+	$date = date("Y-m-d");
 	echo $date;
 
 
