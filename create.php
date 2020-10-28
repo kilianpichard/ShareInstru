@@ -32,7 +32,7 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 	if(!empty($_POST["pseudo"])){$pseudo = $_POST['pseudo'];}  
 	if(!empty($_POST["nom"])){$nom = $_POST['nom'];}
 	if(!empty($_POST["prenom"])){$prenom = $_POST['prenom'];}  
-	if(!empty($_POST["naissance"])){$nom = $_POST['naissance'];}  
+	if(!empty($_POST["naissance"])){$naissance = $_POST['naissance'];}  
 	if(!empty($_POST["email"])){$email = $_POST['email'];}  
 	if(!empty($_POST["password"])){$password = $_POST['password'];}
 	if(!empty($_POST["portable"])){$portable = $_POST['portable'];}

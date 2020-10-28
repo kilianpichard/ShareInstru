@@ -49,6 +49,13 @@ input[type=date]{
 	border: none;
 	outline: none;
 }
+input[type=date]:hover{
+	cursor: pointer;
+}
+::-webkit-calendar-picker-indicator {
+	filter: invert(1);
+ 	cursor: pointer;
+}
 
 input[type=submit]{
 	width: 100%;
