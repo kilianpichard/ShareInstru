@@ -41,7 +41,7 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 
 	print_r($tab);
 
-	$req1 = "INSERT INTO Log (log_numero, log_date, log_type) values ('$n_util','$date','$log_type')";
+	$req1 = "REPLACE INTO Log (log_numero, log_date, log_type) values ('$n_util','$date','$log_type')";
 	$cur=preparerRequetePDO($conn,$req1);
 	$res=majDonneesPrepareesPDO($cur);
 	echo "<br/> connexion réussis";
