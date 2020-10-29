@@ -28,17 +28,24 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 	echo $password;
 
 
-	$req = "SELECT * FROM utilisateur where util_pseudo = '$pseudo' and util_mdp = '$password'";
+	date_default_timezone_set('Europe/Paris');
+	$date = date("Y-m-d H-i-s");
 
+	$req = "SELECT util_numero FROM utilisateur where util_pseudo = '$pseudo' and util_mdp = '$password'";
 	$nb = LireDonneesPDO1($conn,$req,$tab);
-	$cur=preparerRequetePDO($conn,$req);
+
+	$n_util = $tab[0]['util_numero'];
+	$log_type = "page-login";
+
+	if($nb == 1){ 
+
+	print_r($tab);
+
+	$req1 = "INSERT INTO Log (log_numero, log_date, log_type) values ('$n_util','$date','$log_type')";
+	$cur=preparerRequetePDO($conn,$req1);
 	$res=majDonneesPrepareesPDO($cur);
-
-
-	echo "<br/>";
-	echo $nb;
-
-	if($nb == 1) echo "<br/> connexion réussis";
+	echo "<br/> connexion réussis";
+	}
 	else header('Location: https://dev-instruments.users.info.unicaen.fr/login.html');
 	
 
