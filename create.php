@@ -3,6 +3,8 @@
 include("util_php/pdo_oracle.php");
 include("util_php/util_chap11");
 
+$secretkey = "b56ea98n";
+
 $user="instruments";
 $mdp="Esha2ohCheu5eij3";
 $instance = "mysql:host=localhost;dbname=instruments_bd";
@@ -37,6 +39,8 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 	if(!empty($_POST["password"])){$password = $_POST['password'];}
 	if(!empty($_POST["portable"])){$portable = $_POST['portable'];}
 	if(!empty($_POST["fixe"])){$fixe = $_POST['fixe'];}      
+
+	$password = md5($password+$secretkey);
 
 
 	$req = "INSERT INTO utilisateur (util_pseudo, util_nom, util_prenom, util_date_naissance, util_date_inscription, util_email, util_mdp, util_portable, util_fixe) values ('$pseudo','$nom','$prenom','$naissance','$date','$email','$password','$portable','$fixe')";
