@@ -14,13 +14,19 @@
 	<form method="post" action="reservation.php">
 
 		<label for="peudo">Categorie</label>
-		
-		
 			<select name="categorie" id="categorie" required>
 			<option value="">-- Choisissez une catégorie --</option>
-    		<option value="1">Vent</option>
-    		<option value="2">Percussion</option>
-    		<option value="3">Corde</option>
+    		<option value="1">Instruments à Vent</option>
+    		<option value="2">Instruments à Percussion</option>
+    		<option value="3">Instruments à Corde</option>
+			</select>
+
+		<label for="peudo">Type</label>
+			<select name="Type" id="type" required>
+			<option value="">-- Choisissez le type d'instrument --</option>
+    		<option value="1">Instruments à Vent</option>
+    		<option value="2">Instruments à Percussion</option>
+    		<option value="3">Instruments à Corde</option>
 			</select>
 		
 
@@ -33,6 +39,10 @@
 
 		<label>Description</label>
 		<input type="text" name="description" id="description" placeholder="description..">
+
+		<label>Prix (€/jours)</label>
+		<input type="number" name="prix" id="prix" placeholder="10€"
+		step="any">
 
 		<label>Photo(s)</label>
 		<input type="file" name="photo" id="photo" accept="image/png, image/jpeg">
