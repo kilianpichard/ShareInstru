@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/b320a9314d.js"></script>
+  <title>Accueil</title>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <i class="fas fa-guitar"><span class="pl">Share Instru</span></i>
+  </div>
+  <div class="navigation">
+    <a>
+      <btn>S'inscrire</btn>
+    </a>
+    <a>
+      <btn>Se Connecter</btn>
+    </a>
+    <div class="spacer"></div>
+    <span>Kilian PICHARD</span>
+    <img class="avatar" src="118698591_2669868109947896_169040454904742152_n.jpg">
+  </div>
+</nav>
+<div class="content">
+  <h1>Location d'instruments</h1>
+  <form>
+    <div>
+      <label for="lieux">Lieux</label><br/>
+      <input name="lieux" placeholder="Où ?" type="text"/> <br/>
+    </div>
+    <div>
+      <label for="debut">Date Début</label><br/>
+      <input name="debut" placeholder="Date début location" type="text"/> <br/>
+    </div>
+    <div>
+      <label for="name">Date Fin</label><br/>
+      <input name="name" placeholder="Date fin location" type="text"/> <br/>
+    </div>
+    <div>
+      <label for="categorie">Catégories</label><br/>
+      <select name="categorie"></select>
+    </div>
+    <div>
+      <label for="instrument">Instrument</label><br/>
+      <input name="name" placeholder="Rechercher" type="text"/> <br/>
+    </div>
+  </form>
+</div>
+<div class="near">
+  <h2>Près de Chez Vous</h2>
+  <div class="flexRow">
+    <div class="content card">
+      <div class="preview">
+        <img src="tr4335gii-trompette-sib-intermerdiaire-hd-57535.jpg" class="instru">
+      </div>
+      <div class="flexRow details">
+         <span class="flex">
+            <span>Trompette</span>
+           <span>Bach</span>
+        </span>
+        <div class="rank">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <div class="content card">
+      <div class="preview">
+        <img src="Unknown.png" class="instru">
+      </div>
+      <div class="flexRow details">
+         <span class="flex">
+            <span>Marimba</span>
+           <span>Bergerault</span>
+        </span>
+        <div class="rank">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <div class="content card">
+      <div class="preview">
+        <img src="ysh-301-0001-1403026030.jpg" class="instru">
+      </div>
+      <div class="flexRow details">
+        <span class="flex">
+            <span>Soubasophone</span>
+           <span>Yamaha</span>
+        </span>
+        <div class="rank">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+  * {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pl {
+    padding-left: 10px;
+  }
+
+  .navigation, nav,form,.flexRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  form{
+    margin-top:20px;
+  }
+  .navigation {
+    padding-right: 20px;
+  }
+
+  .navigation > * {
+    margin: 3px;
+  }
+
+  nav {
+    padding: 10px;
+    background: #434852;
+    color: white;
+    height: 40px;
+  }
+
+  btn {
+    border-radius: 10px;
+    background: #56BDE6;
+    padding: 10px;
+  }
+
+  .avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+    border: 3px solid white;
+    padding: 2px;
+  }
+
+  .spacer {
+    height: 40px;
+    background: white;
+    width: 1px;
+  }
+
+  .content {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+
+  input{
+    padding:10px;
+    border: 3px solid #56BDE6;
+    border-radius: 10px;
+  }
+  select{
+    width: 100px;
+    padding:10px;
+    border: 3px solid #56BDE6;
+    border-radius: 20px !important;
+    height: 35px;
+    background-color: white;
+    margin-right: 5px;
+  }
+  .near{
+    margin-top:60px;
+    margin-left: 20px;
+  }
+  .flexRow{
+    padding:30px;
+  }
+  .instru{
+    height: 150px;
+  }
+  .preview{
+    height: 200px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    margin-top: 10px;
+    border: 3px solid #434852;
+    border-radius: 20px;
+  }
+  .card{
+    border-radius: 20px !important;
+    background: white;
+    margin-top: 15px;
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2) !important;
+    padding: 10px !important;
+    width: 400px;
+  }
+  .flex{
+    display: flex;
+    flex-direction: column;
+  }
+  .details{
+    width: 90%;
+  }
+  .fa-star{
+    color: #56BDE6;
+  }
+  .rank{
+    margin-left:5px;
+  }
+</style>
