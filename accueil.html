@@ -4,25 +4,37 @@
   <meta charset="utf-8">
   <script crossorigin="anonymous" src="https://kit.fontawesome.com/b320a9314d.js"></script>
   <title>Accueil</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
 </head>
 <body>
 <nav>
-  <div class="logo">
-    <i class="fas fa-guitar"><span class="pl">Share Instru</span></i>
-  </div>
+    <img class="logo" src="logoB.png">
+    <div class="links">
+      <a class="nav">
+       ACCUEIL
+      </a>
+      <a class="nav">
+       ANNONCES
+      </a>
+      <a class="nav">
+        PROFIL
+       </a>
+    </div>
   <div class="navigation">
     <a>
-      <button>S'inscrire</button>
+      <button class="light">S'inscrire</button>
     </a>
     <a>
-      <button>Se Connecter</button>
+      <button class="full">Se Connecter</button>
     </a>
+    <!--
     <div class="spacer"></div>
     <span>Kilian PICHARD</span>
-    <img class="avatar" src="118698591_2669868109947896_169040454904742152_n.jpg">
+    <img class="avatarAnnonce" src="118698591_2669868109947896_169040454904742152_n.jpg">
+    -->
   </div>
 </nav>
-<div class="content">
+<div class="content" v-if="false">
   <h1>Location d'instruments</h1>
   <form>
     <div>
@@ -31,23 +43,16 @@
     </div>
     <div>
       <label for="debut">Date Début</label><br/>
-      <input name="debut" placeholder="Date début location" type="text"/> <br/>
+      <input name="debut" placeholder="Date début location" type="date"/> <br/>
     </div>
     <div>
       <label for="name">Date Fin</label><br/>
-      <input name="name" placeholder="Date fin location" type="text"/> <br/>
+      <input name="name" placeholder="Date fin location" type="date"/> <br/>
     </div>
     <div>
       <label for="categorie">Catégories</label><br/>
-      <select name="categorie">
-        <option value="null" selected>----------</option>
-        <option value="Cuivres">Cuivres</option>
-        <option value="Cuivres">Bois</option>
-        <option value="Cuivres">Percussions</option>
-        <option value="Cuivres">Cordes</option>
-        <option value="Guitares">Guitares</option>
-        <option value="Basses">Basses</option>
-        <option value="Pianos">Pianos</option>
+      <select name="categorie" id="cat">
+        <option></option>
       </select>
     </div>
     <div>
@@ -56,8 +61,8 @@
     </div>
   </form>
 </div>
-<div class="interrest">
-  <h2>Annonces qui pourraient vous intéresser</h2>
+<div class="new">
+  <h2></h2>
   <div class="flexRow">
     <div class="content card">
       <div class="preview">
@@ -68,6 +73,13 @@
             <span>Trompette</span>
            <span>Bach</span>
         </span>
+
+      </div>
+      <div class="flexRow annonce">
+        <div>
+        <img class="avatarAnnonce" src="118276384_2622551401327659_6871564834362670298_n.jpg">
+        <span>Marie</span>
+      </div>
         <div class="rank">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -75,10 +87,6 @@
           <i class="far fa-star"></i>
           <i class="far fa-star"></i>
         </div>
-      </div>
-      <div class="flexRow annonce">
-        <img class="avatarAnnonce" src="118276384_2622551401327659_6871564834362670298_n.jpg">
-        <span>Marie</span>
       </div>
       <div class="divider"></div>
       <div class="info">
@@ -91,9 +99,16 @@
       </div>
       <div class="flexRow details">
          <span class="flex">
-            <span>Marimba</span>
+            <span>Marimba (4 Octaves)</span>
            <span>Bergerault</span>
         </span>
+ 
+      </div>
+      <div class="flexRow annonce">
+        <div>
+        <img class="avatarAnnonce" src="118698591_2669868109947896_169040454904742152_n.jpg">
+        <span>Kilian</span>
+      </div>
         <div class="rank">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -101,10 +116,6 @@
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
         </div>
-      </div>
-      <div class="flexRow annonce">
-        <img class="avatarAnnonce" src="118698591_2669868109947896_169040454904742152_n.jpg">
-        <span>Kilian</span>
       </div>
       <div class="divider"></div>
       <div class="info">
@@ -120,6 +131,13 @@
             <span>Soubasophone</span>
            <span>Yamaha</span>
         </span>
+        
+      </div>
+      <div class="flexRow annonce">
+        <div>
+        <img class="avatarAnnonce" src="66462075_641959286307284_3033491613973217280_o.jpg">
+        <span>Mathieu</span>
+      </div>
         <div class="rank">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
@@ -127,10 +145,6 @@
           <i class="fas fa-star"></i>
           <i class="far fa-star"></i>
         </div>
-      </div>
-      <div class="flexRow annonce">
-        <img class="avatarAnnonce" src="66462075_641959286307284_3033491613973217280_o.jpg">
-        <span>Mathieu</span>
       </div>
       <div class="divider"></div>
       <div class="info">
@@ -168,13 +182,33 @@
     </div>
     <div class="content card cat">
       <img class="icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0yNzQsMjI4Ljg3OGgtMzZjLTQuMTQyLDAtNy41LDMuMzU4LTcuNSw3LjVjMCw0LjE0MiwzLjM1OCw3LjUsNy41LDcuNWgzNmM0LjE0MiwwLDcuNS0zLjM1OCw3LjUtNy41DQoJCQlDMjgxLjUsMjMyLjIzNiwyNzguMTQyLDIyOC44NzgsMjc0LDIyOC44Nzh6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik01MDQuNSwyNTYuNDk4aC02di01NS40OTRjMC00LjE0Mi0zLjM1OC03LjUtNy41LTcuNWgtOC44MzFMNDMzLjY4LDg4Ljk1NGwyOC44MzQtOS41NjINCgkJCWM4LjM0Mi0yLjc3LDEzLjk0Ni0xMC41ODEsMTMuOTQ2LTE5LjQzN2MwLTIuMTQzLTAuMzMzLTQuMjY2LTAuOTk0LTYuMzI5Yy0xLjY5My01LjIzMy01LjMxMi05LjQ3NS0xMC4xOS0xMS45NDQNCgkJCWMtNC44MjctMi40NDMtMTAuMzExLTIuODUtMTUuNDM3LTEuMTQ2bC00MS4yMiwxMy42N2MtMy45MzIsMS4zMDQtNi4wNjIsNS41NDgtNC43NTgsOS40NzljMS4zMDQsMy45MzEsNS41NDcsNi4wNjIsOS40NzksNC43NTgNCgkJCWw0MS4yMjUtMTMuNjcxYzEuMzA2LTAuNDM1LDIuNzA1LTAuMzMsMy45MzcsMC4yOTRjMS4yODMsMC42NDksMi4yMzksMS43NzcsMi42ODYsMy4xNTljMC4xOCwwLjU2MiwwLjI3MSwxLjE0NCwwLjI3MSwxLjcyOQ0KCQkJYzAsMi4zODItMS40NzcsNC40NzItMy42NzEsNS4yMDFMNzAuNzY5LDE5My41MDNIMzYuMjM3TDM4Mi4zNDgsNzguNzIxYzMuOTMyLTEuMzA0LDYuMDYyLTUuNTQ4LDQuNzU4LTkuNDc5DQoJCQljLTEuMzA0LTMuOTMxLTUuNTQ2LTYuMDYxLTkuNDc5LTQuNzU4TDI3LjQ0NiwxODAuNjE2Yy04LjM0MiwyLjc3LTEzLjk0NiwxMC41NzMtMTMuOTQ2LDE5LjQxN2MwLDAuMjM4LDAuMDA3LDAuNDYzLDAuMDE0LDAuNjg3DQoJCQljLTAuMDA0LDAuMDk1LTAuMDE0LDAuMTg3LTAuMDE0LDAuMjgzdjU1LjQ5NGgtNmMtNC4xNDIsMC03LjUsMy4zNTgtNy41LDcuNXY1OS45OTljMCw0LjE0MiwzLjM1OCw3LjUsNy41LDcuNWgyVjQ2NQ0KCQkJYzAsNC4xNDIsMy4zNTgsNy41LDcuNSw3LjVoMzBjNC4xNDIsMCw3LjUtMy4zNTgsNy41LTcuNVYzMzEuNDk3aDE3OXY2NS4wOTRjLTQuMDY1LTUuODY0LTEwLjg0LTkuNzE1LTE4LjUtOS43MTUNCgkJCWMtMTIuNDA3LDAtMjIuNSwxMC4wOTMtMjIuNSwyMi41djcuNUgxODljLTYuMzQxLDAtMTEuNSw1LjE1OS0xMS41LDExLjV2MThjMCw2LjM0MSw1LjE1OSwxMS41LDExLjUsMTEuNWgxMzQNCgkJCWM2LjM0MSwwLDExLjUtNS4xNTksMTEuNS0xMS41di0xOGMwLTYuMzQxLTUuMTU5LTExLjUtMTEuNS0xMS41aC0zLjV2LTcuNWMwLTEyLjQwNy0xMC4wOTMtMjIuNS0yMi41LTIyLjUNCgkJCWMtNy42NiwwLTE0LjQzNSwzLjg1MS0xOC41LDkuNzE1di02NS4wOTRoMTA1YzQuMTQyLDAsNy41LTMuMzU4LDcuNS03LjVjMC00LjE0Mi0zLjM1OC03LjUtNy41LTcuNUgxNXYtNDQuOTk5bDE1LDAuMDA1djE4LjQ5NQ0KCQkJYzAsNC4xNDIsMy4zNTgsNy41LDcuNSw3LjVoNDM3YzQuMTQyLDAsNy41LTMuMzU4LDcuNS03LjV2LTE4LjQ5NWwxNS0wLjAwNXY0NC45OTloLTgwLjVjLTQuMTQyLDAtNy41LDMuMzU4LTcuNSw3LjUNCgkJCWMwLDQuMTQyLDMuMzU4LDcuNSw3LjUsNy41aDQxVjQ2NWMwLDQuMTQyLDMuMzU4LDcuNSw3LjUsNy41aDMwYzQuMTQyLDAsNy41LTMuMzU4LDcuNS03LjVWMzMxLjQ5N2gyYzQuMTQyLDAsNy41LTMuMzU4LDcuNS03LjUNCgkJCXYtNTkuOTk5QzUxMiwyNTkuODU2LDUwOC42NDIsMjU2LjQ5OCw1MDQuNSwyNTYuNDk4eiBNMjA3LjUsNDA5LjM3NmMwLTQuMTM2LDMuMzY0LTcuNSw3LjUtNy41czcuNSwzLjM2NCw3LjUsNy41djcuNWgtMTUNCgkJCVY0MDkuMzc2eiBNMjg5LjUsNDA5LjM3NmMwLTQuMTM2LDMuMzY0LTcuNSw3LjUtNy41czcuNSwzLjM2NCw3LjUsNy41djcuNWgtMTVWNDA5LjM3NnogTTMxOS41LDQzMS44NzV2MTFoLTEyN3YtMTFIMzE5LjV6DQoJCQkgTTI0OC41LDMzMS41MDJoMTV2NTYuNjY0Yy0yLjM0Ny0wLjgzMy00Ljg3MS0xLjI5LTcuNS0xLjI5Yy0yLjYyOSwwLTUuMTUzLDAuNDU4LTcuNSwxLjI5VjMzMS41MDJ6IE0yNDguNSw0MDkuMzc2DQoJCQljMC00LjEzNiwzLjM2NC03LjUsNy41LTcuNXM3LjUsMy4zNjQsNy41LDcuNXY3LjVoLTE1VjQwOS4zNzZ6IE0yNC41LDMzMS41MDJoMTVWNDU3LjVoLTE1VjMzMS41MDJ6IE00MTkuMzUsOTMuNzA3DQoJCQlsNDYuMjg0LDk5Ljc5NkgzMzguODMzdi0xNC41YzAtNi4zNDEtNS4xNTktMTEuNS0xMS41LTExLjVIMTk2LjgyMkw0MTkuMzUsOTMuNzA3eiBNMTg4LjE2NywxODIuNTAzaDEzNS42Njd2MTFIMTg4LjE2N1YxODIuNTAzeg0KCQkJIE0xNzMuODU2LDE3NS4xMmMtMC40MzgsMS4yMTUtMC42ODksMi41MTktMC42ODksMy44ODR2MTQuNWgtNTQuNzQ1TDE3My44NTYsMTc1LjEyeiBNNDgzLjUsMjU2LjQ5OGwtMzU1LjI1LDAuMDA1DQoJCQljLTQuMTQyLDAtNy41LDMuMzU4LTcuNSw3LjVjMCw0LjE0MiwzLjM1OCw3LjUsNy41LDcuNUg0Njd2MTAuOTk1SDQ1di0xMC45OTVoNTAuNzVjNC4xNDIsMCw3LjUtMy4zNTgsNy41LTcuNQ0KCQkJYzAtNC4xNDItMy4zNTgtNy41LTcuNS03LjVsLTY3LjI1LTAuMDA1di00Ny45OTVoNDU1VjI1Ni40OTh6IE00ODcuNSw0NTcuNWgtMTVWMzMxLjUwMmgxNVY0NTcuNXoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" />
-      <h3>Pianos</h3>
+      <h3>Claviers</h3>
     </div>
   </div>
 </div>
 </body>
-</html>
 
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'BDD.php',true);
+    var Lire = function()
+    {
+      if (xhr.readyState === 4 && xhr.status === 200)
+        {
+        let cat = xhr.response.split(',');
+        let div = document.getElementById('cat');
+        for(let i = 0; i<cat.length; i++){
+          let option = document.createElement('option');
+          option.value = cat[i];
+          option.innerText = cat[i];
+          div.appendChild(option);
+        }
+      }
+    }
+    xhr.addEventListener("readystatechange", Lire, false);
+    xhr.send(null);
+</script>
+</html>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
@@ -203,14 +237,41 @@
   .navigation > * {
     margin: 3px;
   }
+  nav:hover {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    background: #414141;
+    color: white;
+    height: 40px;
+    box-shadow: 0px 10px 35px -18px rgba(0,0,0,0.2);
+    transition: all .5s ease;
+  }
   nav {
     position: fixed;
     top: 0;
     width: 100%;
     padding: 10px;
-    background: #434852;
-    color: white;
+    background: white;
+    color: #414141;
     height: 40px;
+    box-shadow: 0px 10px 35px -18px rgba(0,0,0,0.2);
+    transition: all .5s ease;
+  }
+  nav:hover .logo{
+    filter:brightness(500%);
+  }
+  nav .logo{
+    filter:brightness(100%);
+  }
+  a.nav:hover, nav a.nav, nav:hover a.nav:hover{
+    border-bottom: 1px solid #414141;
+    transition: all .3s ease;
+  }
+  a.nav, nav:hover a.nav{
+    border-bottom: 1px solid white;
+    transition: all .3s ease;
   }
   .avatar {
     height: 30px;
@@ -223,18 +284,33 @@
     height: 30px;
     width: 30px;
     border-radius: 100px;
-    border: 2px solid #56BDE6;
+    border: 2px solid #c8984c;
     margin-right: 5px;
     padding: 2px;
   }
+  .links{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  a.nav:hover{
+    border-bottom: 1px solid #414141;
+    transition: all .3s ease;
+  }
+  a.nav{
+    border-bottom: 1px solid white;
+    transition: all .3s ease;
+  }
+  
   .spacer {
     height: 40px;
-    background: white;
+    background: #c8984c;
     width: 1px;
   }
   .divider {
     height: 1px;
-    background: #434852;
+    background: #c8984c;
     width: 90%;
   }
   .content {
@@ -247,21 +323,22 @@
   }
   input{
     padding:10px;
-    border: 3px solid #56BDE6;
+    border: 3px solid #c8984c;
     border-radius: 10px;
     margin:2.5px;
+    outline: none;
   }
   select{
     width: 150px;
     appearance: none;
-    border: 3px solid #56BDE6;
+    border: 3px solid #c8984c;
     border-radius: 10px !important;
     height: 41px;
     background-color: white;
     outline: none;
     margin:2.5px;
   }
-  .interrest{
+  .new{
     margin-top:60px;
     margin-left: 20px;
   }
@@ -283,16 +360,30 @@
     justify-content: center;
     padding: 3px;
     margin-top: 10px;
-    border: 3px solid #434852;
+    border: 3px solid #c8984c;
     border-radius: 20px;
   }
-  button{
-    background: #56BDE6;
+  button.full{
+    background: #c8984c;
     padding:10px;
     border-radius: 10px;
     border: 0;
     color:white;
     font-size: 15px;
+  }
+  .light{
+    background: white;
+    padding:10px;
+    border: 1px solid white !important;
+    border-radius: 10px;
+    border: 0;
+    color:#434852;
+    font-size: 15px;
+    transition: all .3s ease;
+  }
+  .light:hover{
+    border: 1px solid #434852 !important;
+    transition: all .3s ease;
   }
   .annonce{
     width: 90%;
@@ -316,7 +407,7 @@
     width: 90%;
   }
   .fa-star{
-    color: #56BDE6;
+    color: #c8984c;
   }
   .rank{
     margin-left:5px;
@@ -329,10 +420,13 @@
   .cat{
     margin:5px;
   }
+  body{
+    background: #F9F9F9;
+  }
   .cat:hover{
     box-shadow: 0px 10px 12px 0px rgba(0,0,0,0.2);
     transition: all .3s ease;
-    background: #56BDE6;
+    background: #c8984c;
     color:white;
     cursor : pointer;
   }
@@ -352,5 +446,8 @@ img{
     padding:40px;
     align-items: center;
     justify-content: center;
+  }
+  .logo{
+    height: 40px;
   }
 </style>
