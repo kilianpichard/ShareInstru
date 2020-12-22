@@ -30,18 +30,23 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 
 	date_default_timezone_set('Europe/Paris');
 	$date = date("Y-m-d H-i-s");
-
-	$req = "SELECT util_numero FROM utilisateur where util_pseudo = '$pseudo' and util_mdp = '$password'";
+	
+	
+	
+	$req = "SELECT max(log_numero) as max from LOG";
 	$nb = LireDonneesPDO1($conn,$req,$tab);
+	$numero = $tab[0]['max'];
+	
+	
 
-	$n_util = $tab[0]['util_numero'];
-	$log_type = "page-login";
-
+	$req = "SELECT uti_numero FROM UTILISATEUR where uti_pseudo = '$pseudo' and uti_mdp = '$password'";
+	$nb = LireDonneesPDO1($conn,$req,$tab);
 	if($nb == 1){ 
-
+	$n_util = $tab[0]['uti_numero'];
+	$log_type = "page-login";	
 	print_r($tab);
 
-	$req1 = "REPLACE INTO Log (log_numero, log_date, log_type) values ('$n_util','$date','$log_type')";
+	$req1 = "INSERT OR REPLACE INTO LOG (log_numero,uti_numero, log_date, log_type) values ('$numero','$n_util','$date','$log_type')";
 	$cur=preparerRequetePDO($conn,$req1);
 	$res=majDonneesPrepareesPDO($cur);
 	echo "<br/> connexion réussis";
