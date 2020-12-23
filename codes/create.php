@@ -19,8 +19,9 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 	$date = date("Y-m-d");
 	echo $date;
 
-
+	$ville = 5;	
 	$pseudo = "";
+	$numero = 0;
 	$nom = "";
 	$prenom = "";
 	$naissance = "";
@@ -42,8 +43,29 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 
 	$password = $password = hash_hmac('md5',"$password","$secretkey");
 
+	
+	//Recupérer l'util numero du dernière utilisateur
+	
+	$req = "SELECT max(uti_numero)+1 as max from UTILISATEUR";
+	$nb = LireDonneesPDO1($conn,$req,$tab);
 
-	$req = "INSERT INTO utilisateur (util_pseudo, util_nom, util_prenom, util_date_naissance, util_date_inscription, util_email, util_mdp, util_portable, util_fixe) values ('$pseudo','$nom','$prenom','$naissance','$date','$email','$password','$portable','$fixe')";
+	
+	echo "<br>";
+	$numero = $tab[0]['max'];
+	echo "<br>";
+	
+	echo "num :".$numero;echo "<br>";
+	echo "ville :".$ville;echo "<br>";
+	echo "pseudo :".$pseudo;echo "<br>";
+	echo "nom :".$nom;echo "<br>";
+	echo "prenom :".$prenom;echo "<br>";
+	echo "inscription :".$date;echo "<br>";
+	echo "naissance :".$naissance;echo "<br>";
+	echo "protable :".$portable;echo "<br>";
+	echo "fixe :".$fixe;echo "<br>";
+	
+
+	$req = "INSERT INTO UTILISATEUR(uti_numero,vil_numero,uti_pseudo,uti_nom,uti_prenom,uti_date_naissance,uti_date_inscription, uti_email, uti_mdp, uti_portable, uti_tel_fixe) values ('$numero','$ville','$pseudo','$nom','$prenom','$naissance','$date','$email','$password','$portable','$fixe')";
 
 	$cur=preparerRequetePDO($conn,$req);
 	$res=majDonneesPrepareesPDO($cur);
