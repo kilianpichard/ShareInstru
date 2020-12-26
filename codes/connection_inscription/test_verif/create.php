@@ -2,6 +2,7 @@
 
 include("util_php/pdo_oracle.php");
 include("util_php/util_chap11");
+//include("verif_entree_noms.php");
 
 $secretkey = "b56ea98n";
 
@@ -45,30 +46,40 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 
 	
 	//Recupérer l'util numero du dernière utilisateur
-	
-	$req = "SELECT max(uti_numero)+1 as max from UTILISATEUR";
-	$nb = LireDonneesPDO1($conn,$req,$tab);
+	//if (nomCorrect($nom) && nomCorrect($prenom))
+	//{
+		//$nom = ConvertirEnNom($nom);
+		//$prenom = ConvertirEnPrenom($prenom);
 
-	
-	echo "<br>";
-	$numero = $tab[0]['max'];
-	echo "<br>";
-	
-	echo "num :".$numero;echo "<br>";
-	echo "ville :".$ville;echo "<br>";
-	echo "pseudo :".$pseudo;echo "<br>";
-	echo "nom :".$nom;echo "<br>";
-	echo "prenom :".$prenom;echo "<br>";
-	echo "inscription :".$date;echo "<br>";
-	echo "naissance :".$naissance;echo "<br>";
-	echo "protable :".$portable;echo "<br>";
-	echo "fixe :".$fixe;echo "<br>";
+		$req = "SELECT max(uti_numero)+1 as max from UTILISATEUR";
+		$nb = LireDonneesPDO1($conn,$req,$tab);
+
+		
+		echo "<br>";
+		$numero = $tab[0]['max'];
+		echo "<br>";
+		
+		echo "num :".$numero;echo "<br>";
+		echo "ville :".$ville;echo "<br>";
+		echo "pseudo :".$pseudo;echo "<br>";
+		echo "nom :".$nom;echo "<br>";
+		echo "prenom :".$prenom;echo "<br>";
+		echo "inscription :".$date;echo "<br>";
+		echo "naissance :".$naissance;echo "<br>";
+		echo "protable :".$portable;echo "<br>";
+		echo "fixe :".$fixe;echo "<br>";
+		
+
+		$req = "INSERT INTO UTILISATEUR(uti_numero,vil_numero,uti_pseudo,uti_nom,uti_prenom,uti_date_naissance,uti_date_inscription, uti_email, uti_mdp, uti_portable, uti_tel_fixe) values ('$numero','$ville','$pseudo','$nom','$prenom','$naissance','$date','$email','$password','$portable','$fixe')";
+
+		$cur=preparerRequetePDO($conn,$req);
+		$res=majDonneesPrepareesPDO($cur);
+
+		echo "Succès, l'utilisateur a été bien ajouté à la base de données.";
+	/*} else {
+		echo"ERREUR DE SAISIE </br>";
+	}*/
 	
 
-	$req = "INSERT INTO UTILISATEUR(uti_numero,vil_numero,uti_pseudo,uti_nom,uti_prenom,uti_date_naissance,uti_date_inscription, uti_email, uti_mdp, uti_portable, uti_tel_fixe) values ('$numero','$ville','$pseudo','$nom','$prenom','$naissance','$date','$email','$password','$portable','$fixe')";
-
-	$cur=preparerRequetePDO($conn,$req);
-	$res=majDonneesPrepareesPDO($cur);
-	echo "Succès, l'utilisateur a été bien ajouté à la base de données.";
 
 ?>
