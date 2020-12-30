@@ -3,14 +3,10 @@
 <head>
   <meta charset="utf-8">
   <script crossorigin="anonymous" src="https://kit.fontawesome.com/b320a9314d.js"></script>
-  <title>Creation compte</title>
+  <title>Présentation</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
 </head>
 <body>
-
-	<!--
     <nav>
         <img class="logo" src="logoB.png">
         <div class="links">
@@ -32,47 +28,55 @@
           <button class="full">Se Connecter</button>
         </a>
         <div class="spacer"></div>
-        <span>Utilisateur</span>
-        <img class="avatarAnnonce" src="">
+        <span>Gaëlle Massaly</span>
+        <img class="avatarAnnonce" src="gaelle.jpg">
       </div>
     </nav>
--->
 
-<div class ="wrap">
-	<h2>Inscription</h2>
-	
-	<form method="post" action="create.php">
-
-		<label for="peudo">Pseudonyme</label>
-		<input type="text" name="pseudo" id="pseudo" placeholder="pseudo.." required>
-
-		<label for="nom">Nom</label>
-		<input type="text" name="nom" id="nom" placeholder="nom.." required>
-
-		<label>Prenom</label>
-		<input type="text" name="prenom" id="prenom" placeholder="prenom.." required>
-
-		<label>Date de naissance</label>
-		<input type="date" name="naissance" id="naissance"  min="1900-01-01" max="2050-01-01" value="2000-01-01" placeholder="date de naissance.." required>
-
-		<label>Adresse mail</label>
-		<input type="text" name="email" id="email" placeholder="email.." required>
-
-		<label>Mot de passe</label>
-		<input type="password" name="password" id="password" placeholder="mot de passe.." required>
-
-		<label>Telephone portable</label>
-		<input type="text" name="portable" id="portable" placeholder="telephone portable.." required>
-
-		<label>Telephone fixe</label>
-		<input type="text" name="fixe" id="fixe" placeholder="telephone fixe..">
-
-		<input type="submit" name="submit" id="submit" value="Envoyer">
-	</form>
+    <span id="marimba1" class="target"></span>
+    <span id="marimba2" class="target"></span>
+    <span id="marimba3" class="target"></span>
+    <span id="marimba4" class="target"></span>
+    <div class="cadre_diapo">
+      <div class="interieur_diapo">
+        <div class=description>
+          <img src="marimba1.jpg" alt>
+        </div>
+        <div class=description>
+          <img src="marimba2.jpg" alt>
+        </div>
+        <div class=description>
+          <img src="marimba3.jpg" alt>
+        </div>
+        <div class=description>
+          <img src="marimba4.jpg" alt>
+        </div>
+      </div>
+      <ul class="navigation_diapo">
+        <li>
+          <a href="#marimba1">
+            <img src="marimba1.jpg" alt>
+          </a>
+        </li>
+        <li>
+          <a href="#marimba2">
+            <img src="marimba2.jpg" alt>
+          </a>
+        </li>
+        <li>
+          <a href="#marimba3">
+            <img src="marimba3.jpg" alt>
+          </a>
+        </li>
+        <li>
+          <a href="#marimba4">
+            <img src="marimba4.jpg" alt>
+          </a>
+        </li>
+      </ul>
+    </div>
 </body>
-</html>
 
-<!--
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 html{
