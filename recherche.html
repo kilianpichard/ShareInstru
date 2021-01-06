@@ -36,90 +36,35 @@
   </nav>
   <!-- SELECTEUR RECHERCHE -->
   <div class="content">
-    <div class="card recherche">
-      <h2>Rechercher un Instrument</h2>
-    <form>
-      <div>
-        <label for="lieux">Lieux</label><br/>
-        <input name="lieux" placeholder="Où ?" type="text"/> <br/>
-      </div>
-      <div>
-        <label for="debut">Date Début</label><br/>
-        <input name="debut" placeholder="Date début location" type="date"/> <br/>
-      </div>
-      <div>
-        <label for="name">Date Fin</label><br/>
-        <input name="name" placeholder="Date fin location" type="date"/> <br/>
-      </div>
-      <div>
-        <label for="categorie">Catégories</label><br/>
-        <select name="categorie" id="cat">
-          <option selected></option>
-        </select>
-      </div>
-      <div>
-        <label for="submit"></label><br/>
-        <input  name="submit" placeholder="Rechercher" type="submit"/> <br/>
-      </div>
-    </form>
-    </div>
-  </div>
+
   <!-- NOUVELLES ANNONCES -->
   <h1>Nouvelles Annonces</h1>
   <div class="new">
-    <div class="flexRow">
-      <div class="content card" id="1">
+    <div class="flex">
+      <div class="card" id="1">
         <div class="user">
           <img class="avatarAnnonce" src="66462075_641959286307284_3033491613973217280_o.jpg">
           <span>Mathieu</span>
         </div>
-        <div class="preview">
-          <img src="ysh-301-0001-1403026030.jpg" class="instru">
-        </div>
-        <div class="flex instrument">
-          <h3>Soubasophone</h3>
-          <h3>Yamaha</h3>
-        </div>
-        <div class="divider"></div>
-        <div class="info">
-          Praesent id felis efficitur, tempus felis pellentesque, semper tellus. Morbi sed tristique urna, a vehicula quam. Vestibulum porta dolor at lacinia varius. Integer tempus consectetur ullamcorper. Aenean metus nibh, cursus nec gravida nec, auctor eget mi. Suspendisse sit amet libero nunc. In tincidunt nulla a lobortis auctor. Aliquam erat volutpat. Morbi at interdum lorem. Vivamus a elementum libero, sit amet semper magna. Nullam at dolor sagittis, sollicitudin metus at, maximus felis. Aenean pretium ante quis turpis vehicula pellentesque nec sed neque.
-        </div>
-      </div>
-      <div class="content card" id="2">
-        <div class="user">
-          <img class="avatarAnnonce" src="66462075_641959286307284_3033491613973217280_o.jpg">
-          <span>Mathieu</span>
-        </div>
-        <div class="preview">
-          <img src="ysh-301-0001-1403026030.jpg" class="instru">
-        </div>
-        <div class="flex instrument">
-          <h3>Soubasophone</h3>
-          <h3>Yamaha</h3>
-        </div>
-        <div class="divider"></div>
-        <div class="info">
-          Praesent id felis efficitur, tempus felis pellentesque, semper tellus. Morbi sed tristique urna, a vehicula quam. Vestibulum porta dolor at lacinia varius. Integer tempus consectetur ullamcorper. Aenean metus nibh, cursus nec gravida nec, auctor eget mi. Suspendisse sit amet libero nunc. In tincidunt nulla a lobortis auctor. Aliquam erat volutpat. Morbi at interdum lorem. Vivamus a elementum libero, sit amet semper magna. Nullam at dolor sagittis, sollicitudin metus at, maximus felis. Aenean pretium ante quis turpis vehicula pellentesque nec sed neque.
-        </div>
-      </div>
-      <div class="content card" id="3">
-        <div class="user">
-          <img class="avatarAnnonce" src="66462075_641959286307284_3033491613973217280_o.jpg">
-          <span>Mathieu</span>
-        </div>
-        <div class="preview">
-          <img src="ysh-301-0001-1403026030.jpg" class="instru">
-        </div>
-        <div class="flex instrument">
-          <h3>Soubasophone</h3>
-          <h3>Yamaha</h3>
-        </div>
-        <div class="divider"></div>
-        <div class="info">
-          Praesent id felis efficitur, tempus felis pellentesque, semper tellus. Morbi sed tristique urna, a vehicula quam. Vestibulum porta dolor at lacinia varius. Integer tempus consectetur ullamcorper. Aenean metus nibh, cursus nec gravida nec, auctor eget mi. Suspendisse sit amet libero nunc. In tincidunt nulla a lobortis auctor. Aliquam erat volutpat. Morbi at interdum lorem. Vivamus a elementum libero, sit amet semper magna. Nullam at dolor sagittis, sollicitudin metus at, maximus felis. Aenean pretium ante quis turpis vehicula pellentesque nec sed neque.
+        <div class="flexRow">
+          <div class="flex">
+            <div class="preview">
+              <img src="ysh-301-0001-1403026030.jpg" class="instru">
+            </div>
+            <div class="flexRow instrument">
+              <h3>Soubasophone</h3>
+              <h3> - </h3>
+              <h3>Yamaha</h3>
+            </div>
+          </div>
+          <div class="spacer"></div>
+          <div class="info">
+            Praesent id felis efficitur, tempus felis pellentesque, semper tellus. Morbi sed tristique urna, a vehicula quam. Vestibulum porta dolor at lacinia varius. Integer tempus consectetur ullamcorper. Aenean metus nibh, cursus nec gravida nec, auctor eget mi. Suspendisse sit amet libero nunc. In tincidunt nulla a lobortis auctor. Aliquam erat volutpat. Morbi at interdum lorem. Vivamus a elementum libero, sit amet semper magna. Nullam at dolor sagittis, sollicitudin metus at, maximus felis. Aenean pretium ante quis turpis vehicula pellentesque nec sed neque.
+          </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <!-- CATEGORIES -->
   <div class="top">
@@ -158,27 +103,12 @@
 </body>
 
 <script>
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'BDD.php?function=cat',true);
-    var Cat = function()
-    {
-      if (xhr.readyState === 4 && xhr.status === 200)
-        {
-        let cat = xhr.response.split('|');
-        let div = document.getElementById('cat');
-        for(let i = 0; i<cat.length; i++){
-          let option = document.createElement('option');
-          option.value = cat[i];
-          option.innerText = cat[i];
-          div.appendChild(option);
-        }
-      }
-    }
-    xhr.addEventListener("readystatechange", Cat, false);
-    xhr.send(null);
+  const queryString = window.location.search;
+
+  console.log(queryString.split('?')[1]);
 
     var xhr2 = new XMLHttpRequest();
-    xhr2.open('GET', 'BDD.php?function=new',true);
+    xhr2.open('GET', 'recherche.php?function='+queryString.split('?')[1],true);
     var New = function()
     {
       if (xhr2.readyState === 4 && xhr2.status === 200)
@@ -186,6 +116,12 @@
         let tab = (xhr2.response.split('/////'));
         let img,ins,marque,utilisateur, desc,uti;
         for(let i = 0; i<tab.length-1; i++){
+          if(i>=1){
+            var original = document.getElementById(i);
+            var clone = original.cloneNode(true); // "deep" clone
+            clone.id = ++i; // there can only be one element with an ID
+            original.parentNode.appendChild(clone);
+          }
           console.log(tab[i]);
           img = tab[i].split('|')[6];
           ins = tab[i].split('|')[4];
@@ -195,14 +131,14 @@
           uti = tab[i].split('|')[7];
           let int = i+1;
           let div = document.getElementById(int.toString());
-          div.childNodes[1].childNodes[1].src = uti;
+          console.log(div.childNodes);
+
           div.childNodes[1].childNodes[3].innerText = utilisateur;
-          div.childNodes[3].childNodes[1].src = img;
-
-          div.childNodes[5].childNodes[1].innerText = ins;
-          div.childNodes[5].childNodes[3].innerText = marque;
-
-          div.childNodes[9].innerText = desc;
+          div.childNodes[3].childNodes[1].childNodes[1].childNodes[1].src = img;
+          div.childNodes[3].childNodes[1].childNodes[3].childNodes[1].innerText = ins;
+          div.childNodes[3].childNodes[1].childNodes[3].childNodes[5].innerText = marque;
+          div.childNodes[3].childNodes[5].innerText = desc;
+          div.childNodes[1].childNodes[1].src = uti;
         }
       }
     }
@@ -314,6 +250,11 @@
     background: #c8984c;
     width: 90%;
   }
+  .spacer{
+    width: 10px !important;
+    background: #c8984c;
+    height: 90% !important;
+  }
   .content {
     padding-top: 15px;
     display: flex;
@@ -408,7 +349,7 @@
     box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
     padding: 10px !important;
     margin:15px;
-    width: 390px;
+    width: 90%;
     transition: all .3s ease;
   }
   .card.recherche{
@@ -428,10 +369,9 @@
     width: 90%;
   }
   .info{
-    padding:15px !important;
-    height: 150px;
     overflow: hidden;
-    width: 90% !important;
+    width: 50%;
+    height: 200px !important;
   }
   .cat{
     margin:5px;

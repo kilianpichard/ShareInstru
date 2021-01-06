@@ -8,8 +8,8 @@ include("pdo_oracle.php");
     return OuvrirConnexionPDO($db,$login,$mdp);
   }
 
-  if($_REQUEST["function"]=="cat"){
-    getCat();
+  if($_REQUEST["function"]=="cuivres"){
+    getCuivre();
   }else if($_REQUEST["function"]=="new"){
     getNew();
   }
@@ -21,26 +21,12 @@ include("pdo_oracle.php");
     return $tab;
   }
 
-
-
-function getCat(){
-  $req = 'SELECT CAT_NOM FROM `CATEGORIE` order by CAT_NOM';
-  $cat = sql($req);
-  for ($i=0;$i<sizeof($cat);$i++)
-  {
-    if($i == sizeof($cat)-1){
-      echo utf8_encode($cat[$i]['CAT_NOM']);
-    }else{
-      echo utf8_encode($cat[$i]['CAT_NOM']).'|';
-    }
-  }
-}
-
-function getNew(){
+function getCuivre(){
   $req = 'SELECT MARQUE.MAR_NOM, UTILISATEUR.UTI_NOM,UTILISATEUR.UTI_PRENOM,VILLE.VIL_NOM, INS_NOM, INS_DESCRIPTION,INS_PHOTO,UTI_PHOTO FROM `INSTRUMENT` as instru
 join MARQUE using (MAR_NUMERO)
 join VILLE using (VIL_NUMERO)
-join UTILISATEUR USING (UTI_NUMERO)';
+join UTILISATEUR USING (UTI_NUMERO)
+join CATEGORIE using (CAT_NUMERO)';
   $new = sql($req);
   for ($i=0;$i<sizeof($new);$i++){
     echo($new[$i]["MAR_NOM"].'|'.$new[$i]["UTI_NOM"].'|'.$new[$i]["UTI_PRENOM"].'|'.$new[$i]["VIL_NOM"].'|'.$new[$i]["INS_NOM"]
