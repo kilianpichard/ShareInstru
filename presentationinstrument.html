@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/b320a9314d.js"></script>
+  <title>Présentation</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+</head>
+<body>
+    <nav>
+        <img class="logo" src="logoB.png">
+        <div class="links">
+          <a class="nav">
+           ACCUEIL
+          </a>
+          <a class="nav">
+           ANNONCES
+          </a>
+          <a class="nav">
+            PROFIL
+           </a>
+        </div>
+      <div class="navigation">
+        <a>
+          <button class="light">S'inscrire</button>
+        </a>
+        <a>
+          <button class="full">Se Connecter</button>
+        </a>
+        <div class="spacer"></div>
+        <span>Gaëlle Massaly</span>
+        <img class="avatarAnnonce" src="gaelle.jpg">
+      </div>
+    </nav>
+<div class="content">
+    <div class="name">
+      <h1>Marimba (4 Octaves) Bergerault</h1>
+    </div>
+
+    <span id="marimba1" class="target"></span>
+    <span id="marimba2" class="target"></span>
+    <span id="marimba3" class="target"></span>
+    <span id="marimba4" class="target"></span>
+      <div class="cadre_diapo">
+        <div class="interieur_diapo">
+          <div class=description>
+            <img src="marimba1.jpg" alt>
+          </div>
+          <div class=description>
+            <img src="marimba2.jpg" alt>
+          </div>
+          <div class=description>
+            <img src="marimba3.jpg" alt>
+          </div>
+          <div class=description>
+            <img src="marimba4.jpg" alt>
+          </div>
+        </div>
+        <ul class="navigation_diapo">
+          <li>
+            <a href="#marimba1">
+              <img src="marimba1.jpg" alt>
+            </a>
+          </li>
+          <li>
+            <a href="#marimba2">
+              <img src="marimba2.jpg" alt>
+            </a>
+          </li>
+          <li>
+            <a href="#marimba3">
+              <img src="marimba3.jpg" alt>
+            </a>
+          </li>
+          <li>
+            <a href="#marimba4">
+              <img src="marimba4.jpg" alt>
+            </a>
+          </li>
+        </ul>
+    </div>
+</div>
+</body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+  html{
+      overflow-x: hidden;
+    }
+    * {
+      font-family: 'Open Sans', sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pl {
+      padding-left: 10px;
+    }
+
+      .logo{
+      height: 40px;
+    }
+
+    .links{
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 10px;
+      background: white;
+      color: #414141;
+      height: 40px;
+      box-shadow: 0px 10px 35px -18px rgba(0,0,0,0.2);
+      transition: all .5s ease;
+    }
+
+    nav:hover {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 10px;
+      background: #414141;
+      color: white;
+      height: 50px;
+      box-shadow: 0px 10px 35px -18px rgba(0,0,0,0.2);
+      transition: all .5s ease;
+    }
+
+    nav:hover .logo{
+      filter:brightness(500%);
+    }
+
+    nav .logo{
+      filter:brightness(100%);
+    }
+
+    .navigation, nav,form,.flexRow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navigation {
+      padding-right: 20px;
+    }
+
+    .navigation > * {
+      margin: 3px;
+    }
+
+    a.nav:hover, nav a.nav, nav:hover a.nav:hover{
+      border-bottom: 1px solid #414141;
+      transition: all .3s ease;
+    }
+
+    a.nav, nav:hover a.nav{
+      border-bottom: 1px solid white;
+      transition: all .3s ease;
+    }
+
+    .avatar {
+      height: 30px;
+      width: 30px;
+      border-radius: 100px;
+      border: 3px solid white;
+      padding: 2px;
+    }
+
+    .avatarAnnonce {
+      height: 30px;
+      width: 30px;
+      border-radius: 100px;
+      border: 2px solid #c8984c;
+      margin-right: 5px;
+      padding: 2px;
+    }
+
+    button.full{
+      background: #c8984c;
+      padding:10px;
+      border-radius: 10px;
+      border: 0;
+      color:white;
+      font-size: 15px;
+    }
+
+    .light{
+      background: white;
+      padding:10px;
+      border: 1px solid white !important;
+      border-radius: 10px;
+      border: 0;
+      color:#434852;
+      font-size: 15px;
+      transition: all .3s ease;
+    }
+
+    .light:hover{
+      border: 1px solid #434852 !important;
+      transition: all .3s ease;
+    }
+
+    *{box-sizing:border-box}
+
+    img{
+    max-width: 100%;
+    }
+
+  .name {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-top:60px;
+  }
+
+/*pour le saut de page, on cree une class que l'on met en display:none*/
+.target{
+display: none;
+}
+/* englobe le slider */
+
+.cadre_diapo{
+max-width: 400px;
+overflow: hidden;
+}
+.interieur_diapo{
+display: flex;
+width: 400%;
+transition: transform .6s ease-in-out;
+}
+
+.description{
+position: relative;
+}
+
+.description span{
+position: absolute;
+left: 0;
+top: 2%;
+font-size: 75%;
+display: flex;
+padding: .5rem;
+justify-content: left;
+color: white;
+background: hsla(0,0%,0%,.35)
+}
+
+
+#marimba1:target ~ .cadre_diapo .interieur_diapo{
+transform:translatex(0)
+}/*image 1*/
+
+#marimba2:target ~ .cadre_diapo .interieur_diapo{
+transform:translatex(-25%)
+}/*image 2*/
+
+#marimba3:target ~ .cadre_diapo .interieur_diapo{
+transform:translatex(-50%)
+}/*image 3*/
+
+#marimba4:target ~ .cadre_diapo .interieur_diapo{
+transform:translatex(-75%)
+}
+
+.navigation_diapo{
+display: flex; /*permet d'aligner les photos les unes à la suite des autres, on peut aussi utiliser le positionnement absolu*/
+list-style-type: none;
+margin: 0;
+padding: 0
+}
+
+.navigation_diapo li {
+	padding: .25rem;
+}
+
+.navigation_diapo img{
+border: 3px solid white;
+box-shadow:0 0 5px hsla(0,0%,0%,.4);
+}
+
+@media (min-width:31.25rem){
+  .description span{
+  font-size: initial
+  }
+}
+    .content{
+      padding: 20px;
+    }
+</style>

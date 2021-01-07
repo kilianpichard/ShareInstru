@@ -17,7 +17,9 @@ body{
 label {
 	float: left;
 }
-
+.info{
+  border: 1px solid red;
+}
 h2{
 	text-align: center;
 }
@@ -130,7 +132,7 @@ input[type=number]{
 	border-radius: 5px;
 	margin: 5px;
 	font-weight: bold;
-	
+
 }
 
 select{
