@@ -101,7 +101,17 @@
       </p>
     </div>
     <hr class="divider">
-    
+    <div id="googleMap" class="map"></div> <!-- Carte temporaire-->
 </div>
+<script>
+  function myMap() {
+  var mapProp= {
+  center:new google.maps.LatLng(49.14915,-0.35335), 
+  zoom:15,
+  };
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBckK-Tj4z1IIEf4fxd-afDwwdev4tpvR0&callback=myMap" type="text/javascript"></script>
 </body>
-
+</html>

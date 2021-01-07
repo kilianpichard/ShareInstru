@@ -248,6 +248,11 @@ hr.divider {
   color: #2d3436;
 }
 
+.map {
+  width:67%;
+  height:400px;
+}
+
 @media (min-width:31.25rem){
 .description span{
 font-size: initial
