@@ -34,6 +34,8 @@
       </div>
     </nav>
 <div class="content">
+  <!-- TITRE ET PHOTOS INSTRUMENT -->
+  <div class="cadre_instrument">
     <div class="name">
       <h1>Marimba (4 Octaves) Bergerault</h1>
     </div>
@@ -80,28 +82,53 @@
           </li>
         </ul>
     </div>
+  </div>
+  <div class="cadre_reservation">
+    <div class="inner_reservation">
+      <h1 class="prix"><span class="prixParHeure">10 €  </span>/ heure</h1>
+      <div class="remplissage">
+        <input class="date_reserve" type="date"/>
+        <div class="start_hour">
+          <label for="heure_debut">Début</label>
+          <input name="heure_debut" type="time"/>
+        </div>
+        <div class="end_hour">
+          <label for="heure_fin">Fin</label>
+          <input name="heure_fin" type="time"/>
+        </div>
+        <hr class="divider">
+        <input type="submit" class="reserver" value="Réserver"/>
+      </div>
+    </div>
+  </div>
     <hr class="divider">
+    <!-- DESCRIPTION -->
     <div class="desc">
       <h1>Description</h1>
       <p><br>
         Marimba d'étude BERGERAULT PERFORMER MP43, 4 octaves 1/3 La03 à Do49, chassis bois naturel verni, accord 442 HZ, 
         lames padouk, largeur lames de 60 à 40 mm, épaisseur des lames 24 mm, longueur 147 cm, largeur bouts : 78 - 37 cm, 
         piétement fonte d'alum inium peinture epoxy bronze martelé à roulettes, démontable, hauteur réglable de 84 à 97 cm par 
-        vérin hydraulique, système "easy lift" à gaz.<br>
+        vérin hydraulique, système "easy lift" à gaz.<br/>
       </p>
     </div>
     <hr class="divider">
+    <!-- PROFIL PROPRIETAIRE -->
     <div class="cadre_owner">
       <h1><a href=""><img class="avatar_prop" src="noah.jpg"></a>   Proposé par Noah Coupey</h1>
       <p>
-        Bonjour ! Comment allez-vous ?<br>
+        Bonjour ! Comment allez-vous ?<br/>
         Enthousiaste de musique, je mets à disposition mes instruments au grand public ! J'espère que vous trouverez votre
-        compte parmi ceux-ci. Si c'est le cas, n'hésitez pas à me contacter !
-        <br><a href="">Voir plus >></a>
+        compte parmi ceux-ci. Si c'est le cas, n'hésitez pas à me contacter ! 
+        Autre que cela, je suis un étuidant en informatique, donc je risque de ne pas<span id="dots">...</span>
+        <span id="more">être joignable à tout moment de la journée. Mais je devrais pouvoir vous répondre dans la journée 
+        sans problème !</span>
       </p>
+      <button onclick="lirePlus()" id="lectureSup">Lire plus</button>
     </div>
     <hr class="divider">
-    <div id="googleMap" class="map"></div> <!-- Carte temporaire-->
+    <!-- CARTE INTERACTIVE -->
+    <div id="googleMap" class="map"></div> <!-- Carte temporaire, pour l'instant google maps, mais requiert une clé API payante -->
 </div>
 <script>
   function myMap() {
@@ -110,6 +137,23 @@
   zoom:15,
   };
   var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  }
+
+  function lirePlus() {
+    var dots = document.getElementById("dots");
+    var moreText = document.getElementById("more");
+    var btnText = document.getElementById("lectureSup");
+
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "Lire plus";
+      moreText.style.display = "none";
+    }
+    else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Lire moins";
+    moreText.style.display = "inline";
+  }
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBckK-Tj4z1IIEf4fxd-afDwwdev4tpvR0&callback=myMap" type="text/javascript"></script>
