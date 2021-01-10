@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>ajout location</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="style.css"> -->
   <script src="script.js"></script>
 </head>
 <body>
@@ -29,9 +29,13 @@
     		<option value="3">Instruments à Corde</option>
 			</select>
 		
-
-
 		<label for="nom">Marque</label>
+			<select name="selMarque" size="1">
+				<?php MenuDeroulantMarque($conn) ?>
+			</select>
+
+
+		
 		<input type="text" name="marque" id="marque" placeholder="marque.." required>
 
 		<label>Nom</label>
@@ -49,8 +53,5 @@
 
 		<input type="submit" name="submit" id="submit" value="Envoyer">
 	</form>
-
-
-
 </body>
 </html>
