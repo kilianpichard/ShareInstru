@@ -77,19 +77,24 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 				<?php MenuDeroulantMarque($conn) ?>
 			</select>
 
-
-		
-		<input type="text" name="marque" id="marque" placeholder="marque.." required>
-
 		<label>Nom</label>
 		<input type="text" name="nom" id="nom" placeholder="nom.." required>
 
 		<label>Description</label>
 		<input type="text" name="description" id="description" placeholder="description..">
 
+		<label>Ville</label>
+		<input type="text" name="ville" id="ville" placeholder="ville.." required>
+
 		<label>Prix (€/jours)</label>
 		<input type="number" name="prix" id="prix" placeholder="10€"
 		step="any">
+
+		<label>Date de début</label>
+		<input type="date" name="naissance" id="naissance"  min="1900-01-01" max="2050-01-01" value="2000-01-01" placeholder="date de naissance.." required>
+
+		<label>Date de fin</label>
+		<input type="date" name="naissance" id="naissance"  min="1900-01-01" max="2050-01-01" value="2000-01-01" placeholder="date de naissance.." required>
 
 		<label>Photo(s)</label>
 		<input type="file" name="photo" id="photo" accept="image/png, image/jpeg">
