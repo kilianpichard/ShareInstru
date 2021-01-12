@@ -3,8 +3,10 @@
 include("util_php/pdo_oracle.php");
 include("util_php/util_chap11");
 
+//Clé secrete pour chiffre le mot de passe
 $secretkey = "b56ea98n";
 
+//Connexion a la BDD
 $user="instruments";
 $mdp="Esha2ohCheu5eij3";
 $instance = "mysql:host=localhost;dbname=instruments_bd";
@@ -15,6 +17,7 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 		echo ("<hr/> Connexion impossible à la base de données <br/>");
 
 
+	//Récupération date du jour
 	date_default_timezone_set('Europe/Paris');
 	$date = date("Y-m-d");
 	echo $date;
@@ -54,6 +57,8 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 	$numero = $tab[0]['max'];
 	echo "<br>";
 	
+
+	//Affichage pour vérifier les données que l'on a rentré
 	echo "num :".$numero;echo "<br>";
 	echo "ville :".$ville;echo "<br>";
 	echo "pseudo :".$pseudo;echo "<br>";

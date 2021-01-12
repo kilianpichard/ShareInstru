@@ -2,7 +2,7 @@
 include("util_php/pdo_oracle.php");
 include("util_php/util_chap11");
 
-
+//Connexion BDD
 $user="instruments";
 $mdp="Esha2ohCheu5eij3";
 $instance = "mysql:host=localhost;dbname=instruments_bd";
@@ -25,6 +25,8 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 	if(!empty($_POST["nom"])){$nom = $_POST['nom'];}
 	if(!empty($_POST["prenom"])){$prenom = $_POST['prenom'];} 
 
+
+	//Fonction menu déroulant du choix de la marque
 	function MenuDeroulantMarque($conn)
 	{
 
@@ -39,7 +41,8 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 		}
 	}
 
-		function MenuDeroulantCategorie($conn)
+	//Fonction menu déroulant du choix de la catégorie
+	function MenuDeroulantCategorie($conn)
 	{
 
 		$req = "SELECT CAT_NUMERO, CAT_NOM FROM CATEGORIE";
