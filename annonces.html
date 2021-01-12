@@ -5,7 +5,7 @@
   <script crossorigin="anonymous" src="https://kit.fontawesome.com/b320a9314d.js"></script>
   <title>Recherche</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
-  <script src="js/recherche.js"></script>
+  <script src="js/annonces.js"></script>
   <link href="css/recherche.css" rel="stylesheet">
 </head>
 <body>
@@ -15,7 +15,7 @@
         <a class="nav" href="accueil.html">
          ACCUEIL
         </a>
-        <a class="nav" href="annonces.html">
+        <a class="nav">
          ANNONCES
         </a>
         <a class="nav">
@@ -40,16 +40,11 @@
   <div class="content">
 
     <!-- NOUVELLES ANNONCES -->
-    <h1>Recherche</h1>
-    <div class="selector" id="title" style="display: none">
-      <h3>Annonces dans la catégorie </h3>
-      <select id="cat" onchange="selectChange()"></select>
-    </div>
+    <h1>Toutes les Annonces</h1>
 
     <div class="new">
       <p id="load">chargement...</p>
       <p id="none" style="display: none">Aucun résultat pour cette recherche</p>
-
       <div class="flex" id="search" style="display: none">
         <div class="card" id="1">
           <div class="spacerFlex">
