@@ -1,5 +1,8 @@
 <?php
 
+include("util_php/pdo_oracle.php");
+include("util_php/util_chap11.php");
+
 
 if(isset($_POST['valider'])){
     if(!empty($_POST['ville'])){
@@ -38,7 +41,39 @@ $tmp = explode(",",$tmp)[0];
 $postal = explode('"',$tmp)[1];
 echo "<br> code postal : ".$postal;
 
+//Connexion à la base de donnée
 
+$secretkey = "b56ea98n";
+
+$user="instruments";
+$mdp="Esha2ohCheu5eij3";
+$instance = "mysql:host=localhost;dbname=instruments_bd";
+	$conn = OuvrirConnexionPDO($instance,$user,$mdp);
+	if ($conn)
+		echo ("<hr/> Connexion réussie à la base de données <br/>");
+	else
+		echo ("<hr/> Connexion impossible à la base de données <br/>");
+
+
+
+	//Verifier si la ville est pas dékà dans la base
+
+	$req = "SELECT ville_numero from VILLE where vil_nom like '$ville'";
+	$nb = LireDonneesPDO1($conn,$req,$tab);
+	if(nb == 0){
+
+	//Recupérer le numero de ville maximum
+	$req = "SELECT max(ville_numero)+1 as max from VILLE";
+	$nb = LireDonneesPDO1($conn,$req,$tab);
+	$numero = $tab[0]['max'];
+
+	$req = "INSERT INTO VILLE(vil_numero,vil_nom,vil_cp,vil_lattitude,vil_longitude) values ('$numero','$ville','$postal','$latitude','$longitude')";
+
+	$cur=preparerRequetePDO($conn,$req);
+	$res=majDonneesPrepareesPDO($cur);
+	echo "La ville a bien été ajouté.";
+
+}
 
 
     }else{
