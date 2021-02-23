@@ -17,12 +17,15 @@
     </head>
     <body>
 
+        <form action="ville.php" method="post">
        <input name="ville" id="ville" type="text" placeholder="Ville">
+       <input type="submit" value="valider" name="valider">
+   </form>
 <script>
 $("#ville").autocomplete({
     source: function (request, response) {
         $.ajax({
-            url: "https://api-adresse.data.gouv.fr/search/?city="+$("input[name='ville']").val(),
+            url: "https://api-adresse.data.gouv.fr/search/?q="+$("input[name='ville']").val()+"&type=&autocomplete=1",
             data: { q: request.term },
             dataType: "json",
             success: function (data) {
