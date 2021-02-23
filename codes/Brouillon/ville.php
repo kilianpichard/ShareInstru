@@ -32,6 +32,15 @@ $longitude = explode(",",$tmp)[0];
 echo "<br> longitude : ".$longitude;
 
 
+//Récuperation code postal
+$tmp = explode('"postcode":',$data)[1];
+$tmp = explode(",",$tmp)[0];
+$postal = explode('"',$tmp)[1];
+echo "<br> code postal : ".$postal;
+
+
+
+
     }else{
         echo "Ville non défini";
         echo $_POST['ville'];
