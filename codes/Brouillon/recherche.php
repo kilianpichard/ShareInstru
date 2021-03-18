@@ -25,7 +25,7 @@
 $("#ville").autocomplete({
     source: function (request, response) {
         $.ajax({
-            url: "https://api-adresse.data.gouv.fr/search/?q="+$("input[name='ville']").val()+"&type=&autocomplete=1",
+            url: "https://api-adresse.data.gouv.fr/search/?q="+$("input[name='ville']").val()+"&type=municipality&autocomplete=1",
             data: { q: request.term },
             dataType: "json",
             success: function (data) {

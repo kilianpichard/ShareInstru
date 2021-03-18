@@ -1,7 +1,9 @@
 <?php
 
-include("util_php/pdo_oracle.php");
-include("util_php/util_chap11.php");
+include("pdo_oracle.php");
+include("util_chap11.php");
+
+$proxy="http://proxy.unicaen.fr:3128";
 
 
 if(isset($_POST['valider'])){
@@ -18,22 +20,27 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 //for debug only!
 curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl, CURLOPT_PROXY, $proxy);
+curl_setopt($curl, CURLOPT_TIMEOUT_MS, 2000);
 
 $data = curl_exec($curl);
 curl_close($curl);
 
 
-//Récupération latitude
-$tmp = explode('"y":',$data)[1];
-$latitude = explode(",",$tmp)[0];
-echo "latitude :".$latitude;
-
-
-//Récuperation longitude
-$tmp = explode('"x":',$data)[1];
+//Recupération longitude
+$tmp = explode('"coordinates":',$data)[1];
 $longitude = explode(",",$tmp)[0];
-echo "<br> longitude : ".$longitude;
+$longitude = substr($longitude,2);
 
+echo "<br>longitude :".$longitude;
+
+//Recupération longitude
+$tmp = explode('"coordinates":',$data)[1];
+$latitude = explode(",",$tmp)[1];
+$latitude = rtrim($latitude,"]}");
+$latitude = substr($latitude,1);
+
+echo "<br>latitude :".$latitude;
 
 //Récuperation code postal
 $tmp = explode('"postcode":',$data)[1];
@@ -47,7 +54,10 @@ $secretkey = "b56ea98n";
 
 $user="instruments";
 $mdp="Esha2ohCheu5eij3";
+
 $instance = "mysql:host=localhost;dbname=instruments_bd";
+
+
 	$conn = OuvrirConnexionPDO($instance,$user,$mdp);
 	if ($conn)
 		echo ("<hr/> Connexion réussie à la base de données <br/>");
@@ -56,14 +66,17 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 
 
 
-	//Verifier si la ville est pas dékà dans la base
+	//Verifier si la ville est pas déjà dans la base
 
-	$req = "SELECT ville_numero from VILLE where vil_nom like '$ville'";
+	$req = "SELECT vil_numero from VILLE where vil_nom like '$ville'";
 	$nb = LireDonneesPDO1($conn,$req,$tab);
-	if(nb == 0){
+
+
+
+	if($nb == 0){
 
 	//Recupérer le numero de ville maximum
-	$req = "SELECT max(ville_numero)+1 as max from VILLE";
+	$req = "SELECT max(vil_numero)+1 as max from VILLE";
 	$nb = LireDonneesPDO1($conn,$req,$tab);
 	$numero = $tab[0]['max'];
 
@@ -73,7 +86,7 @@ $instance = "mysql:host=localhost;dbname=instruments_bd";
 	$res=majDonneesPrepareesPDO($cur);
 	echo "La ville a bien été ajouté.";
 
-}
+	}
 
 
     }else{
