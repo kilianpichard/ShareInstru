@@ -5,8 +5,13 @@
   <script crossorigin="anonymous" src="https://kit.fontawesome.com/b320a9314d.js"></script>
   <title>Creation compte</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.7.3/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
+
 </head>
 <body>
 
@@ -41,34 +46,77 @@
 <div class ="wrap">
 	<h2>Inscription</h2>
 	
-	<form method="post" action="create.php">
+	<form method="post" action="create.php" enctype="multipart/form-data">
 
-		<label for="peudo">Pseudonyme</label>
+		<label for="peudo">Pseudonyme*</label>
 		<input type="text" name="pseudo" id="pseudo" placeholder="pseudo.." required>
 
-		<label for="nom">Nom</label>
+		<label for="nom">Nom*</label>
 		<input type="text" name="nom" id="nom" placeholder="nom.." required>
 
-		<label>Prenom</label>
+		<label>Prenom*</label>
 		<input type="text" name="prenom" id="prenom" placeholder="prenom.." required>
 
-		<label>Date de naissance</label>
+		<label>Date de naissance*</label>
 		<input type="date" name="naissance" id="naissance"  min="1900-01-01" max="2050-01-01" value="2000-01-01" placeholder="date de naissance.." required>
 
-		<label>Adresse mail</label>
+		<label>Adresse mail*</label>
 		<input type="text" name="email" id="email" placeholder="email.." required>
+		
+		<label>Ville</label>
+		<input type="text" name="ville" id="ville" placeholder="ville..">
 
-		<label>Mot de passe</label>
+		<label>Mot de passe*</label>
 		<input type="password" name="password" id="password" placeholder="mot de passe.." required>
 
 		<label>Telephone portable</label>
-		<input type="text" name="portable" id="portable" placeholder="telephone portable.." required>
+		<input type="text" name="portable" id="portable" placeholder="telephone portable..">
+
+    <label>Telephone portable 2</label>
+    <input type="text" name="portable2" id="portable2" placeholder="second telephone portable..">
 
 		<label>Telephone fixe</label>
 		<input type="text" name="fixe" id="fixe" placeholder="telephone fixe..">
 
+    <label>Image de profil</label>
+    <input type="file" name="image" id="image">
+
+    <label>Description</label>
+    <input type="text" name="description" id="description" placeholder="Présentez vous">
+
 		<input type="submit" name="submit" id="submit" value="Envoyer">
 	</form>
+	
+	<script>
+$("#ville").autocomplete({
+    source: function (request, response) {
+        $.ajax({
+            url: "https://api-adresse.data.gouv.fr/search/?q="+$("input[name='ville']").val()+"&type=municipality&autocomplete=1",
+            data: { q: request.term },
+            dataType: "json",
+            success: function (data) {
+                var cities = [];
+                response($.map(data.features, function (item) {
+                    // Ici on est obligé d'ajouter les villes dans un array pour ne pas avoir plusieurs fois la même
+                    if ($.inArray(item.properties.postcode, cities) == -1) {
+                        cities.push(item.properties.postcode);
+                        return { label: item.properties.postcode + " - " + item.properties.city, 
+                                 postcode: item.properties.postcode,
+                                 value: item.properties.city
+                        };
+                    }
+                }));
+            }
+        });
+    },
+    // On remplit aussi le CP
+    select: function(event, ui) {
+        $('#cp').val(ui.item.postcode);
+    }
+});
+</script>
+
+
 </body>
 </html>
 
