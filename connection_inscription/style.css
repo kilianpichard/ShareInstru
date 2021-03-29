@@ -1,0 +1,166 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+}
+title{
+	font-family: 'Open Sans', sans-serif;
+	
+}
+.wrap{
+
+	max-width: 750px;
+	border-radius: 20px;
+	margin: auto;
+	background-color: #F9F9F9;
+	box-sizing: border-box;
+	padding: 20px;
+	color:#414141;
+	margin-top: 30px;
+	display: table;
+}
+label {
+	float: left;
+}
+
+h2{
+	text-align: center;
+}
+
+input[type = text], input[type=password]{
+	width:100%;
+	box-sizing: border-box;;
+	padding: 10px 5px;
+	background:rgba(0,0,0,0.10);
+	outline: none;
+	border: 3px solid #c8984c;
+    border-radius: 10px;
+	color: #4141417c;
+	margin: 5px;
+	font-weight: bold;
+}
+
+input[type=date]{
+	background-color: rgba(0,0,0,0.10);
+	opacity: 0.8;
+	color: #41414169;
+	padding: 10px 5px;
+	margin: 5px;
+	width: 100%;
+    border-radius: 10px;
+	box-sizing: border-box;
+	text-align: center;
+	font-weight: bold;
+	border: 3px solid #c8984c;
+    border-radius: 10px;
+}
+input[type=date]:hover{
+	cursor: pointer;
+}
+input::-webkit-calendar-picker-indicator {
+	color: #41414169;
+	opacity: 0.4;
+ 	cursor: pointer;
+}
+
+input[type=submit]{
+	width: 100%;
+	box-sizing:border-box;
+	padding: 10px 0;
+	margin-top: 30px;
+	outline: none;
+	border: none;
+	background:#c8984c;
+	opacity: 0.7;
+	border-radius: 20px;
+	font-size: 20px;
+	color:#fff;
+}
+	input[type=submit]:hover{
+		background:#434852;
+		opacity: 0.8;
+		cursor: pointer;
+}
+
+input[type=button]{
+		width: 100%;
+		box-sizing: border-box;
+		border-radius: 20px;
+		border: none;
+		outline: none;
+		color: #fff;
+		background-color: #c8984c;
+		padding: 10px 0;
+		margin-top: 20px;
+		font-size: 20px;
+		opacity: 0.7;
+
+}
+	input[type=button]:hover{
+		background:#434852;
+		opacity: 0.8;
+		cursor: pointer;
+}
+input[type=file]{
+
+		width: 100%;
+		box-sizing: border-box;
+		border-radius: 20px;
+		border: none;
+		outline: none;
+		color: #fff;
+		background-color: #696969;
+		padding: 10px 0;
+		margin-top: 20px;
+		font-size: 20px;
+		opacity: 0.7;
+
+}
+
+
+input[type=file]:hover{
+	cursor: pointer;
+	background-color: #808080;
+	}
+
+input[type=number]{
+	 -moz-appearance: textfield;
+		width:100%;
+	box-sizing: border-box;;
+	padding: 10px 5px;
+	background:rgba(0,0,0,0.10);
+	outline: none;
+	border: none;
+	border-bottom: 1px;
+	color: #fff;
+	border-radius: 5px;
+	margin: 5px;
+	font-weight: bold;
+	
+}
+
+select{
+	width:100%;
+	box-sizing: border-box;;
+	padding: 10px 5px;
+	background:rgba(0,0,0,0.10);
+	outline: none;
+	border: none;
+	border-bottom: 1px;
+	color: #fff;
+	border-radius: 5px;
+	margin: 5px;
+	font-weight: bold;
+	text-align: center;
+}
+
+option:not(:checked) {
+  background-color: #696969;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+        display: none;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #414141;
+	opacity: 0.4; /* Firefox */
+  }

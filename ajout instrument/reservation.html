@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>ajout location</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+<div class ="wrap">
+	<h2>Ajout d'un instrument</h2>
+	
+	<form method="post" action="reservation.php">
+
+		<label for="peudo">Categorie</label>
+			<select name="categorie" id="categorie" required>
+			<option value="">-- Choisissez une catégorie --</option>
+    		<option value="1">Instruments à Vent</option>
+    		<option value="2">Instruments à Percussion</option>
+    		<option value="3">Instruments à Corde</option>
+			</select>
+
+		<label for="peudo">Type</label>
+			<select name="Type" id="type" required>
+			<option value="">-- Choisissez le type d'instrument --</option>
+    		<option value="1">Instruments à Vent</option>
+    		<option value="2">Instruments à Percussion</option>
+    		<option value="3">Instruments à Corde</option>
+			</select>
+		
+		<label for="nom">Marque</label>
+			<select name="selMarque" size="1">
+				<option value="">-- Choisissez la marque --</option>
+				<?php MenuDeroulantMarque($conn);?>
+
+			</select>
+
+		<label>Nom</label>
+		<input type="text" name="nom" id="nom" placeholder="nom.." required>
+
+		<label>Description</label>
+		<input type="text" name="description" id="description" placeholder="description..">
+
+		<label>Description</label>
+		<input type="text" name="ville" id="ville" placeholder="ville..">
+
+		<label>Prix (€/jours)</label>
+		<input type="number" name="prix" id="prix" placeholder="10€" step="any">
+
+		<label>Photo(s)</label>
+		<input type="file" name="photo" id="photo" accept="image/png, image/jpeg">
+
+		<input type="submit" name="submit" id="submit" value="Envoyer">
+	</form>
+</body>
+</html>
